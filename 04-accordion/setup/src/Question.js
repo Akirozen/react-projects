@@ -1,7 +1,22 @@
-import React, { useState } from 'react';
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-const Question = () => {
-  return <h2>question component</h2>;
-};
+import React, { useState } from 'react'
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+// import data from './data'
 
-export default Question;
+const Question = ({ title, info }) => {
+  const [showInfo, setShowInfo] = useState(false)
+
+  return (
+    <div className="question">
+      <header>
+        <h4>{title}</h4>
+
+        <button className="btn" onClick={() => setShowInfo(!showInfo)}>
+          {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        </button>
+      </header>
+      {showInfo && <p>{info}</p>}
+    </div>
+  )
+}
+
+export default Question
